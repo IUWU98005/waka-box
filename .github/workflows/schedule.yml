@@ -1,14 +1,14 @@
 name: Update gist with WakaTime stats
+
 on:
   schedule:
-    - cron: "0 0 * * *"
-  # Manual triggers with workflow_dispatch
-  workflow_dispatch:
+    - cron: "0 * * * *"   # 每小时更新一次，测试用
+  workflow_dispatch:       # 可以手动触发
+
 jobs:
   update-gist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
       - name: Update gist
         uses: matchai/waka-box@master
         env:
